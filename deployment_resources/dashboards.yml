@@ -1,0 +1,13 @@
+targets:
+# Dashboards do NOT deploy to dev
+  prod:
+    resources:
+      dashboards:
+        piq_main:
+          display_name: 'PipelineIQ V2.2 (BETA)'
+          file_path: ../dashboards/piq_main.lvdash.json
+          warehouse_id: ${var.my_warehouse_id}
+        piq_sales_managers:
+          display_name: 'PipelineIQ V2.2 for Sales Managers (BETA)'
+          file_path: ../dashboards/piq_sales_managers.lvdash.json
+          warehouse_id: ${var.my_warehouse_id}
