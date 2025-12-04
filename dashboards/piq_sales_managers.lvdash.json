@@ -4,32 +4,168 @@
       "name": "eb899a32",
       "displayName": "acceleration_categories",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.acceleration_categories"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM acceleration_categories"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "ce30d9a1",
       "displayName": "pipelineiq_view",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.pipelineiq_view"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM pipelineiq_view \n"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "25f2a985",
       "displayName": "slippage_categories",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.slippage_categories"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM slippage_categories"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "97d31d1a",
       "displayName": "Top 10 Business Usecase Types and Counts",
       "queryLines": [
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
         "SELECT business_usecase_type, COUNT(*) AS usecase_count, SUM(estimated_monthly_dollar_dbus)\n",
-        "FROM users.luis_herrera.pipelineiq_view\n",
+        "FROM pipelineiq_view\n",
         "GROUP BY business_usecase_type\n",
         "ORDER BY usecase_count DESC\n",
         "LIMIT 10;"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     }
   ],
@@ -361,20 +497,20 @@
                       "expression": "`usecase_id`"
                     },
                     {
-                      "name": "confidence_level_normalized",
-                      "expression": "`confidence_level_normalized`"
-                    },
-                    {
                       "name": "estimated_monthly_dollar_dbus",
                       "expression": "`estimated_monthly_dollar_dbus`"
                     },
                     {
-                      "name": "one_liner",
-                      "expression": "`one_liner`"
+                      "name": "confidence_level_normalized",
+                      "expression": "`confidence_level_normalized`"
                     },
                     {
                       "name": "rationale_for_confidence_score",
                       "expression": "`rationale_for_confidence_score`"
+                    },
+                    {
+                      "name": "one_liner",
+                      "expression": "`one_liner`"
                     },
                     {
                       "name": "stage",
@@ -383,6 +519,10 @@
                     {
                       "name": "next_best_action_recommendation",
                       "expression": "`next_best_action_recommendation`"
+                    },
+                    {
+                      "name": "last_modified_date",
+                      "expression": "`last_modified_date`"
                     },
                     {
                       "name": "target_onboarding_date",
@@ -399,6 +539,10 @@
                     {
                       "name": "account_solution_architect",
                       "expression": "`account_solution_architect`"
+                    },
+                    {
+                      "name": "soundbyte",
+                      "expression": "`soundbyte`"
                     },
                     {
                       "name": "usecase_name",
@@ -432,7 +576,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -484,7 +628,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -510,34 +654,8 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 4,
-                    "title": "usecase_id",
+                    "title": "Usecase",
                     "allowSearch": true,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "confidence_level_normalized",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 5,
-                    "title": "confidence_level_normalized",
-                    "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
@@ -562,8 +680,8 @@
                     "type": "float",
                     "displayAs": "number",
                     "visible": true,
-                    "order": 6,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "order": 5,
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "center",
                     "allowHTML": false,
@@ -572,7 +690,7 @@
                     "preserveWhitespace": false
                   },
                   {
-                    "fieldName": "one_liner",
+                    "fieldName": "confidence_level_normalized",
                     "booleanValues": [
                       "false",
                       "true"
@@ -588,8 +706,8 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 7,
-                    "title": "Description (oneliner)",
+                    "order": 6,
+                    "title": "Confidence Score",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -614,8 +732,34 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
+                    "order": 7,
+                    "title": "Rationale for Confidence Score",
+                    "allowSearch": false,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false
+                  },
+                  {
+                    "fieldName": "one_liner",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
                     "order": 8,
-                    "title": "rationale_for_confidence_score",
+                    "title": "Description (oneliner)",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -667,9 +811,36 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 11,
-                    "title": "next_best_action_recommendation",
+                    "title": "Next Best Step",
                     "allowSearch": false,
                     "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false
+                  },
+                  {
+                    "fieldName": "last_modified_date",
+                    "dateTimeFormat": "DD/MM/YYYY",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "date",
+                    "displayAs": "datetime",
+                    "visible": true,
+                    "order": 12,
+                    "title": "Last Modified Date",
+                    "allowSearch": false,
+                    "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
@@ -747,7 +918,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 15,
-                    "title": "Account Executive",
+                    "title": "AE",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -773,8 +944,34 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 16,
-                    "title": "Solution Architect",
+                    "title": "SA",
                     "allowSearch": true,
+                    "alignContent": "left",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false
+                  },
+                  {
+                    "fieldName": "soundbyte",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "string",
+                    "displayAs": "string",
+                    "visible": true,
+                    "order": 64,
+                    "title": "Value Soundbyte",
+                    "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
@@ -830,32 +1027,6 @@
                   "title": "ai_confidence_score_advanced",
                   "allowSearch": false,
                   "alignContent": "left",
-                  "allowHTML": false,
-                  "highlightLinks": false,
-                  "useMonospaceFont": false,
-                  "preserveWhitespace": false
-                },
-                {
-                  "dateTimeFormat": "DD/MM/YYYY",
-                  "booleanValues": [
-                    "false",
-                    "true"
-                  ],
-                  "imageUrlTemplate": "{{ @ }}",
-                  "imageTitleTemplate": "{{ @ }}",
-                  "imageWidth": "",
-                  "imageHeight": "",
-                  "linkUrlTemplate": "{{ @ }}",
-                  "linkTextTemplate": "{{ @ }}",
-                  "linkTitleTemplate": "{{ @ }}",
-                  "linkOpenInNewTab": true,
-                  "name": "last_modified_date",
-                  "type": "date",
-                  "displayAs": "datetime",
-                  "order": 12,
-                  "title": "last_modified_date",
-                  "allowSearch": false,
-                  "alignContent": "right",
                   "allowHTML": false,
                   "highlightLinks": false,
                   "useMonospaceFont": false,
@@ -2021,6 +2192,31 @@
                   "highlightLinks": false,
                   "useMonospaceFont": false,
                   "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
                 }
               ],
               "allowHTMLByDefault": false,
@@ -2047,9 +2243,9 @@
                 "\n",
                 "<span style=\"font-size:14px;font-family:Arial\">THIS IS A</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">**&#32;BETA version**</span><span style=\"font-size:14px;font-family:Arial\">, go/pipelineIQ</span>\n",
                 "\n",
-                "<span style=\"font-family:Arial;font-size:14px\">These dashboards are here to cut through noise and help us nail Q4.</span><span style=\"font-family:Arial;font-size:14px;text-decoration:underline\">**&#32;But if they’re missing the mark, we need to know fast</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">, lease send your feedback through this 2 min&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32; </span>[**<span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">feedback form</span>](https://docs.google.com/forms/d/e/1FAIpQLSeti8KXZGVaCy4EWoPUx0657vZKjWFFT2E1GjDi9FVvlOWknw/viewform?usp=header )\n",
+                "<span style=\"font-family:Arial;font-size:14px\">These dashboards are here to cut through noise and help us nail Q4.</span><span style=\"font-family:Arial;font-size:14px;text-decoration:underline\">**&#32;But if they\u2019re missing the mark, we need to know fast</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">, lease send your feedback through this 2 min&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32; </span>[**<span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">feedback form</span>](https://docs.google.com/forms/d/e/1FAIpQLSeti8KXZGVaCy4EWoPUx0657vZKjWFFT2E1GjDi9FVvlOWknw/viewform?usp=header )\n",
                 "\n",
-                "<span style=\"font-family:Arial;font-size:14px\">PipelineIQ is an AI-driven, forward-looking workspace designed to help sales and field teams prioritize, course-correct, and accelerate execution at scale.At its core are prescriptive, actionable dashboards that give you both:A high-level view of pipeline health by region and territory (by SA FLM), andA granular lens into individual use cases — their qualification, risks, and acceleration potential.You can also interact with the data using Genie, your AI assistant (like ChatGPT), to ask questions in plain language and get instant, contextual insights — without digging through spreadsheets or dashboards manually.It’s built to cut through noise, surface where to lean in, and guide decisions that move the business forward — faster.</span><br><br>Got questions? We probably answered them already. Check [the FAQ](https://docs.google.com/document/d/12DJ0bdrMsXtfnU5ot_XmoYbkFRVkAK-VsBBqdVO7cTw/edit?usp=sharing) .Not answered. You need a walkthrough. Send me a note: luis.herrera@databricks.com"
+                "<span style=\"font-family:Arial;font-size:14px\">PipelineIQ is an AI-driven, forward-looking workspace designed to help sales and field teams prioritize, course-correct, and accelerate execution at scale.At its core are prescriptive, actionable dashboards that give you both:A high-level view of pipeline health by region and territory (by SA FLM), andA granular lens into individual use cases \u2014 their qualification, risks, and acceleration potential.You can also interact with the data using Genie, your AI assistant (like ChatGPT), to ask questions in plain language and get instant, contextual insights \u2014 without digging through spreadsheets or dashboards manually.It\u2019s built to cut through noise, surface where to lean in, and guide decisions that move the business forward \u2014 faster.</span><br><br>Got questions? We probably answered them already. Check [the FAQ](https://docs.google.com/document/d/12DJ0bdrMsXtfnU5ot_XmoYbkFRVkAK-VsBBqdVO7cTw/edit?usp=sharing) .Not answered. You need a walkthrough. Send me a note: luis.herrera@databricks.com"
               ]
             }
           },
@@ -2096,7 +2292,7 @@
           "position": {
             "x": 0,
             "y": 5,
-            "width": 3,
+            "width": 2,
             "height": 3
           }
         },
@@ -2319,7 +2515,7 @@
               "lines": [
                 "# <span style=\"text-align:center;display:block\">Confidence Pulse</span>\n",
                 "\n",
-                "<br>✅ High — Bankable Pipeline<br>Use cases with high confidence are well-qualified, low-risk, and fully aligned with MEDDPICC. The champion, metrics, and decision path are clear — execution can proceed with confidence. These are your high-conviction commits: accelerate, remove friction, and replicate what works.<br><br>⚠️ Medium — Coachable Pipeline<br>Use cases with medium confidence show strong potential but contain qualification gaps — perhaps the champion is weak, the value unproven, or the decision process unclear. Progress is possible, but only through targeted intervention. Leaders should coach, requalify, or rescope before more investment to bring these deals back on track.<br><br>🛑 Low — Forecast Noise<br>Use cases with low confidence carry significant uncertainty or flawed assumptions. Missing metrics, absent champions, or unknown path to production signal that fundamentals need rebuilding. These aren’t lost use cases yet — they need rework to regain clarity before investing more Pause, requalify, or redirect effort to protect forecast integrity and team focus."
+                "<br>\u2705 High \u2014 Bankable Pipeline<br>Use cases with high confidence are well-qualified, low-risk, and fully aligned with MEDDPICC. The champion, metrics, and decision path are clear \u2014 execution can proceed with confidence. These are your high-conviction commits: accelerate, remove friction, and replicate what works.<br><br>\u26a0\ufe0f Medium \u2014 Coachable Pipeline<br>Use cases with medium confidence show strong potential but contain qualification gaps \u2014 perhaps the champion is weak, the value unproven, or the decision process unclear. Progress is possible, but only through targeted intervention. Leaders should coach, requalify, or rescope before more investment to bring these deals back on track.<br><br>\ud83d\uded1 Low \u2014 Forecast Noise<br>Use cases with low confidence carry significant uncertainty or flawed assumptions. Missing metrics, absent champions, or unknown path to production signal that fundamentals need rebuilding. These aren\u2019t lost use cases yet \u2014 they need rework to regain clarity before investing more Pause, requalify, or redirect effort to protect forecast integrity and team focus."
               ]
             }
           },
@@ -2555,6 +2751,53 @@
             "width": 2,
             "height": 1
           }
+        },
+        {
+          "widget": {
+            "name": "unique-accounts",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ce30d9a1",
+                  "fields": [
+                    {
+                      "name": "countdistinct(account_name)",
+                      "expression": "COUNT(DISTINCT `account_name`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(account_name)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Unique Accounts"
+              }
+            }
+          },
+          "position": {
+            "x": 2,
+            "y": 5,
+            "width": 1,
+            "height": 3
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
@@ -2743,6 +2986,65 @@
           "position": {
             "x": 0,
             "y": 6,
+            "width": 1,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "minimum-monthly-dbu",
+            "queries": [
+              {
+                "name": "dashboards/01f0c059ae91194daab9114d9628e04d/datasets/01f0c059ae911edaaed876a29e424280_estimated_monthly_dollar_dbus",
+                "query": {
+                  "datasetName": "ce30d9a1",
+                  "fields": [
+                    {
+                      "name": "min(estimated_monthly_dollar_dbus)",
+                      "expression": "MIN(`estimated_monthly_dollar_dbus`)"
+                    },
+                    {
+                      "name": "max(estimated_monthly_dollar_dbus)",
+                      "expression": "MAX(`estimated_monthly_dollar_dbus`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "range-slider",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "estimated_monthly_dollar_dbus",
+                    "queryName": "dashboards/01f0c059ae91194daab9114d9628e04d/datasets/01f0c059ae911edaaed876a29e424280_estimated_monthly_dollar_dbus"
+                  }
+                ]
+              },
+              "selection": {
+                "defaultSelection": {
+                  "range": {
+                    "dataType": "DOUBLE",
+                    "min": {
+                      "value": "5000"
+                    },
+                    "max": {
+                      "value": ""
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Minimum Montlhly $DBU"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 8,
             "width": 1,
             "height": 2
           }
@@ -2938,7 +3240,7 @@
                 ]
               },
               "frame": {
-                "title": "$DBU Likely to Slip – Breakdown by Manager and Category",
+                "title": "$DBU Likely to Slip \u2013 Breakdown by Manager and Category",
                 "showTitle": true
               }
             }
@@ -3059,6 +3361,10 @@
                       "expression": "`estimated_monthly_dollar_dbus`"
                     },
                     {
+                      "name": "target_onboarding_date",
+                      "expression": "`target_onboarding_date`"
+                    },
+                    {
                       "name": "target_live_date",
                       "expression": "`target_live_date`"
                     },
@@ -3073,10 +3379,6 @@
                     {
                       "name": "next_best_action_recommendation",
                       "expression": "`next_best_action_recommendation`"
-                    },
-                    {
-                      "name": "target_onboarding_date",
-                      "expression": "`target_onboarding_date`"
                     },
                     {
                       "name": "last_modified_date",
@@ -3126,7 +3428,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3178,7 +3480,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3204,7 +3506,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 4,
-                    "title": "Usecase Name",
+                    "title": "Usecase",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3231,7 +3533,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 5,
-                    "title": "slippage_category",
+                    "title": "Slipage Category",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3284,9 +3586,36 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 7,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "center",
+                    "allowHTML": false,
+                    "highlightLinks": false,
+                    "useMonospaceFont": false,
+                    "preserveWhitespace": false
+                  },
+                  {
+                    "fieldName": "target_onboarding_date",
+                    "dateTimeFormat": "DD/MM/YYYY",
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "imageUrlTemplate": "{{ @ }}",
+                    "imageTitleTemplate": "{{ @ }}",
+                    "imageWidth": "",
+                    "imageHeight": "",
+                    "linkUrlTemplate": "{{ @ }}",
+                    "linkTextTemplate": "{{ @ }}",
+                    "linkTitleTemplate": "{{ @ }}",
+                    "linkOpenInNewTab": true,
+                    "type": "date",
+                    "displayAs": "datetime",
+                    "visible": true,
+                    "order": 8,
+                    "title": "Target Onboarding Date",
+                    "allowSearch": false,
+                    "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
@@ -3310,8 +3639,8 @@
                     "type": "date",
                     "displayAs": "datetime",
                     "visible": true,
-                    "order": 8,
-                    "title": "target_live_date",
+                    "order": 9,
+                    "title": "Target Live Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -3336,8 +3665,8 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 9,
-                    "title": "stage",
+                    "order": 10,
+                    "title": "Stage",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3362,8 +3691,8 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 11,
-                    "title": "one_liner",
+                    "order": 12,
+                    "title": "Description (oneliner)",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3388,37 +3717,10 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 12,
-                    "title": "next_best_action_recommendation",
+                    "order": 13,
+                    "title": "Next Best Action",
                     "allowSearch": false,
                     "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "target_onboarding_date",
-                    "dateTimeFormat": "DD/MM/YYYY",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "date",
-                    "displayAs": "datetime",
-                    "visible": true,
-                    "order": 13,
-                    "title": "Target Onboarding Date",
-                    "allowSearch": false,
-                    "alignContent": "right",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
@@ -3443,7 +3745,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 14,
-                    "title": "last_modified_date",
+                    "title": "Last Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -3469,7 +3771,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 15,
-                    "title": "account_executive",
+                    "title": "AE",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3495,7 +3797,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 16,
-                    "title": "account_solution_architect",
+                    "title": "SA",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -3548,7 +3850,7 @@
                   "name": "confidence_level_normalized",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 10,
+                  "order": 11,
                   "title": "confidence_level_normalized",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -4717,6 +5019,56 @@
                   "highlightLinks": false,
                   "useMonospaceFont": false,
                   "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
                 }
               ],
               "allowHTMLByDefault": false,
@@ -5357,7 +5709,7 @@
                 ]
               },
               "frame": {
-                "title": "$DBU that can be accelerated – Breakdown by Manager and Category",
+                "title": "$DBU that can be accelerated \u2013 Breakdown by Manager and Category",
                 "showTitle": true
               }
             }
@@ -5544,7 +5896,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5570,7 +5922,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5596,7 +5948,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 4,
-                    "title": "Use Case Name",
+                    "title": "Usecase",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5622,7 +5974,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 6,
-                    "title": "accel_category",
+                    "title": "Acceleration Category",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5649,7 +6001,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -5675,7 +6027,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 9,
-                    "title": "stage",
+                    "title": "Stage",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5702,7 +6054,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 11,
-                    "title": "target_live_date",
+                    "title": "Target Llive Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -5729,7 +6081,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 12,
-                    "title": "target_onboarding_date",
+                    "title": "Target Onboarding Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -5755,7 +6107,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 26,
-                    "title": "one_liner",
+                    "title": "Oneliner",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5781,7 +6133,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 35,
-                    "title": "account_executive",
+                    "title": "AE",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -5807,7 +6159,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 36,
-                    "title": "account_solution_architect",
+                    "title": "SA",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -7130,6 +7482,56 @@
                   "highlightLinks": false,
                   "useMonospaceFont": false,
                   "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
                 }
               ],
               "allowHTMLByDefault": false,
@@ -8128,7 +8530,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8154,7 +8556,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_executive",
+                    "title": "AE",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8180,7 +8582,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 4,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8206,7 +8608,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 5,
-                    "title": "usecase_id",
+                    "title": "Usecase",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8233,7 +8635,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -8259,7 +8661,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 7,
-                    "title": "stage",
+                    "title": "Stage",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8286,7 +8688,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 8,
-                    "title": "last_modified_date",
+                    "title": "Last Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -8312,7 +8714,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 9,
-                    "title": "one_liner",
+                    "title": "Description (oneliner)",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -8339,7 +8741,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 10,
-                    "title": "target_onboarding_date",
+                    "title": "Target Onboarding Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -8366,7 +8768,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 11,
-                    "title": "target_live_date",
+                    "title": "Target Live Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -8392,7 +8794,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 12,
-                    "title": "next_best_action_recommendation",
+                    "title": "Next Best Action",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -9731,10 +10133,35 @@
                   "name": "is_stale",
                   "type": "boolean",
                   "displayAs": "boolean",
-                  "order": 100037,
+                  "order": 63,
                   "title": "is_stale",
                   "allowSearch": false,
                   "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
+                  "allowSearch": false,
+                  "alignContent": "left",
                   "allowHTML": false,
                   "highlightLinks": false,
                   "useMonospaceFont": false,
@@ -10233,7 +10660,7 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`confidence_level` IN ('High', 'Medium')"
+                      "expression": "`confidence_level` IN ('High', 'Medium', 'Low')"
                     },
                     {
                       "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - AWS;Serverless - Azure', 'Serverless - Azure', 'Serverless - Azure - GovCloud')"
@@ -10266,7 +10693,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10318,7 +10745,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10370,7 +10797,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 5,
-                    "title": "usecase_id",
+                    "title": "Usecase",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10396,7 +10823,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 6,
-                    "title": "usecase_type",
+                    "title": "Usecase type",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10422,7 +10849,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 7,
-                    "title": "business_usecase_type",
+                    "title": "Business Usecase type",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10449,7 +10876,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 8,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -10475,7 +10902,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 9,
-                    "title": "one_liner",
+                    "title": "Oneliner",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10501,7 +10928,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 10,
-                    "title": "target_cloud",
+                    "title": "Target Cloud",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10527,7 +10954,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 11,
-                    "title": "stage",
+                    "title": "Stage",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10554,7 +10981,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 12,
-                    "title": "last_modified_date",
+                    "title": "Last Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -10581,7 +11008,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 13,
-                    "title": "target_onboarding_date",
+                    "title": "Target Onboarding Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -10608,7 +11035,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 14,
-                    "title": "target_live_date",
+                    "title": "Target Live Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -10634,7 +11061,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 15,
-                    "title": "account_executive",
+                    "title": "AE",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -10660,7 +11087,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 16,
-                    "title": "account_solution_architect",
+                    "title": "SA",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -11857,6 +12284,56 @@
                   "highlightLinks": false,
                   "useMonospaceFont": false,
                   "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
                 }
               ],
               "allowHTMLByDefault": false,
@@ -12130,7 +12607,7 @@
                 ]
               },
               "frame": {
-                "title": "Monthly $DBU for U3–U5 migration use cases, grouped by target go-live datethat's ",
+                "title": "Monthly $DBU for U3\u2013U5 migration use cases, grouped by target go-live datethat's ",
                 "showTitle": true
               }
             }
@@ -12203,7 +12680,7 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`confidence_level` IN ('Medium', 'High')"
+                      "expression": "`confidence_level` IN ('Medium', 'High', 'Low')"
                     }
                   ],
                   "disaggregated": false
@@ -12407,6 +12884,64 @@
             "width": 2,
             "height": 3
           }
+        },
+        {
+          "widget": {
+            "name": "unique-accounts",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "ce30d9a1",
+                  "fields": [
+                    {
+                      "name": "countdistinct(account_name)",
+                      "expression": "COUNT(DISTINCT `account_name`)"
+                    }
+                  ],
+                  "filters": [
+                    {
+                      "expression": "`stage` IN ('U3', 'U4', 'U5')"
+                    },
+                    {
+                      "expression": "`usecase_type` IN ('Migration DWH', 'Migration ETL')"
+                    },
+                    {
+                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure')"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(account_name)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Unique Accounts"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 6,
+            "width": 2,
+            "height": 3
+          }
         }
       ],
       "pageType": "PAGE_TYPE_CANVAS"
@@ -12511,24 +13046,12 @@
                       "expression": "`blockers_last_modified_date`"
                     },
                     {
-                      "name": "last_modified_blocker_category",
-                      "expression": "`last_modified_blocker_category`"
-                    },
-                    {
                       "name": "blockers_summary",
                       "expression": "`blockers_summary`"
                     },
                     {
-                      "name": "rationale_for_confidence_score",
-                      "expression": "`rationale_for_confidence_score`"
-                    },
-                    {
                       "name": "stage",
                       "expression": "`stage`"
-                    },
-                    {
-                      "name": "next_best_action_recommendation",
-                      "expression": "`next_best_action_recommendation`"
                     },
                     {
                       "name": "target_onboarding_date",
@@ -12604,7 +13127,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 2,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12630,7 +13153,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12656,7 +13179,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 4,
-                    "title": "usecase_id",
+                    "title": "Usecase",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12709,7 +13232,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "num_of_blockers",
+                    "title": "Num of blocker",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -12736,7 +13259,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 7,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "center",
                     "allowHTML": false,
@@ -12762,7 +13285,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 8,
-                    "title": "confidence_level_normalized",
+                    "title": "Confidence Score",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12789,35 +13312,9 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 10,
-                    "title": "blockers_last_modified_date",
+                    "title": "Last Blockers Last  Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "last_modified_blocker_category",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 11,
-                    "title": "last_modified_blocker_category",
-                    "allowSearch": false,
-                    "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
                     "useMonospaceFont": false,
@@ -12841,33 +13338,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 12,
-                    "title": "blockers_summary",
-                    "allowSearch": false,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "rationale_for_confidence_score",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 13,
-                    "title": "rationale_for_confidence_score",
+                    "title": "Blockers Summary",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12894,32 +13365,6 @@
                     "visible": true,
                     "order": 15,
                     "title": "Stage",
-                    "allowSearch": false,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "next_best_action_recommendation",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 16,
-                    "title": "next_best_action_recommendation",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -12999,7 +13444,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 20,
-                    "title": "Account Executive",
+                    "title": "AE",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -13025,7 +13470,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 21,
-                    "title": "Solution Architect",
+                    "title": "SA",
                     "allowSearch": true,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -13100,11 +13545,86 @@
                   "linkTextTemplate": "{{ @ }}",
                   "linkTitleTemplate": "{{ @ }}",
                   "linkOpenInNewTab": true,
+                  "name": "last_modified_blocker_category",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 11,
+                  "title": "Last Blocker Modified Date",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "rationale_for_confidence_score",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 13,
+                  "title": "rationale_for_confidence_score",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
                   "name": "ai_confidence_score_advanced",
                   "type": "string",
                   "displayAs": "string",
                   "order": 14,
                   "title": "ai_confidence_score_advanced",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "next_best_action_recommendation",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 16,
+                  "title": "next_best_action_recommendation",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -14171,6 +14691,56 @@
                   "highlightLinks": false,
                   "useMonospaceFont": false,
                   "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
                 }
               ],
               "allowHTMLByDefault": false,
@@ -14863,10 +15433,6 @@
                       "expression": "`account_solution_architect`"
                     },
                     {
-                      "name": "use_case_product",
-                      "expression": "`use_case_product`"
-                    },
-                    {
                       "name": "usecase_name",
                       "expression": "`usecase_name`"
                     }
@@ -14898,7 +15464,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 1,
-                    "title": "sales_manager",
+                    "title": "Sales Manager",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -14950,7 +15516,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 3,
-                    "title": "account_name",
+                    "title": "Account",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -14976,7 +15542,7 @@
                     "displayAs": "link",
                     "visible": true,
                     "order": 4,
-                    "title": "usecase_id",
+                    "title": "Usecase",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -15029,7 +15595,7 @@
                     "displayAs": "number",
                     "visible": true,
                     "order": 6,
-                    "title": "estimated_monthly_dollar_dbus",
+                    "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "center",
                     "allowHTML": false,
@@ -15082,7 +15648,7 @@
                     "displayAs": "datetime",
                     "visible": true,
                     "order": 8,
-                    "title": "last_modified_date",
+                    "title": "Last Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
                     "allowHTML": false,
@@ -15188,7 +15754,7 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 12,
-                    "title": "Account Executive",
+                    "title": "AE",
                     "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
@@ -15214,34 +15780,8 @@
                     "displayAs": "string",
                     "visible": true,
                     "order": 13,
-                    "title": "Solution Architect",
+                    "title": "SA",
                     "allowSearch": true,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
-                    "fieldName": "use_case_product",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 23,
-                    "title": "use_case_product",
-                    "allowSearch": false,
                     "alignContent": "left",
                     "allowHTML": false,
                     "highlightLinks": false,
@@ -15495,6 +16035,31 @@
                   "displayAs": "string",
                   "order": 22,
                   "title": "field_leader",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "use_case_product",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 23,
+                  "title": "use_case_product",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
@@ -16481,6 +17046,56 @@
                   "displayAs": "string",
                   "order": 62,
                   "title": "next_best_action_recommendation",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "is_stale",
+                  "type": "boolean",
+                  "displayAs": "boolean",
+                  "order": 63,
+                  "title": "is_stale",
+                  "allowSearch": false,
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "soundbyte",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 64,
+                  "title": "soundbyte",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,
