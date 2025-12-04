@@ -7,6 +7,38 @@ Risk and acceleration analysis of Databricks use cases over the next six months,
 ### Technical summary
 ❗️❗️**PipelineIQ** adds a 'what do i do now' layer of augmentation on top of a single dataset, `silver.use_case_detail`. It's a new table, with lots of AI function calls that joins back to `silver.use_case_detail` ❗️❗️
 
+### Repository Structure
+
+```
+DpipelineIQ/
+├── dashboards/                    # Lakeview dashboard definitions
+│   ├── piq_main.lvdash.json       # Main PipelineIQ dashboard
+│   └── piq_sales_managers.lvdash.json  # Sales manager summary view
+├── databricks.yml                 # Asset Bundle configuration
+├── deployment_resources/          # Deployment configurations
+│   ├── dashboards.yml             # Dashboard deployment settings
+│   └── workflows.yml              # Workflow job definitions
+├── docs/                          # Documentation and diagrams
+│   ├── pipeline_architecture.svg  # Logical flow diagram
+│   ├── pipeline_overview.svg      # High-level overview diagram
+│   └── upgrade_to_incremental_plan.md
+├── exploratory/                   # Exploratory analysis notebooks
+│   ├── Confidence Analysis.ipynb
+│   ├── GPU Radar.ipynb
+│   ├── Managers Summary View.ipynb
+│   └── Technical coverage.ipynb
+├── imgs/                          # Image assets
+├── utils/                         # Utility scripts and notebooks
+│   ├── __init__.py
+│   └── update_dashboard_params.ipynb  # Dashboard parameter updater
+├── workflow/                          # Production pipeline notebooks
+│   ├── 0_create_ref_tables.ipynb      # Reference table setup
+│   ├── 1_incremental_pipeline.ipynb   # Core incremental processing
+│   ├── 2_field_manager_summary_view.ipynb
+│   └── 2_sales_manager_summary_view.ipynb
+└── README.md                      # This file
+```
+
 ### Asset Bundle Deployment
 
 This repository manages Databricks resources using Asset Bundles with two deployment targets:
@@ -17,12 +49,12 @@ This repository manages Databricks resources using Asset Bundles with two deploy
 **Resources managed:**
 - **Workflows** (`deployment_resources/workflows.yml`): Scheduled jobs for incremental pipeline processing and summary view generation
     ```mermaid
-    flowchart LR
-    0[Setup reference tables]
-    1[Incrementally update pipelineIQ]
-    2a[Create sales manager view]
-    2b[Create field manager view]
-    0 --> 1 --> 2a & 2b
+      flowchart LR
+      0[Setup reference tables]
+      1[Incrementally update pipelineIQ]
+      2a[Create sales manager view]
+      2b[Create field manager view]
+      0 --> 1 --> 2a & 2b
     ```
 - **Dashboards** (`deployment_resources/dashboards.yml`): Lakeview dashboards for sales managers and field leadership
   - `piq_main.lvdash.json` - Main PipelineIQ dashboard
