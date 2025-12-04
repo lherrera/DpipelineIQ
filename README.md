@@ -230,3 +230,10 @@ AIBI Dashboards and version control still has some rough edges. Heres how this w
 ### Logical flow for incremental pipe
 
 ![Incremental pipeline logic flow](./docs/pipeline_architecture.svg)
+
+# Attribution
+
+- [Luis Herrera](mailto:luis.herrera@databricks.com)
+- [Sam Le Corre](mailto:sam.lecorre@databricks.com)
+- Dael Williamson
+
