@@ -1,0 +1,39 @@
+resources:
+  jobs:
+    pipeline_iq_incremental_run:
+      name: pipeline_iq_incremental_run
+      
+      tasks:
+        - task_key: create_ref_tables
+          notebook_task:
+            notebook_path: ../workflow/0_create_ref_tables.ipynb
+            base_parameters:
+              catalog: "${var.catalog}"
+              schema: "${var.schema}"
+        
+        - task_key: incremental_pipeline
+          depends_on:
+            - task_key: create_ref_tables
+          notebook_task:
+            notebook_path: ../workflow/1_incremental_pipeline.ipynb
+            base_parameters:
+              catalog: "${var.catalog}"
+              schema: "${var.schema}"
+        
+        - task_key: field_manager_summary_view
+          depends_on:
+            - task_key: incremental_pipeline
+          notebook_task:
+            notebook_path: ../workflow/2_field_manager_summary_view.ipynb
+            base_parameters:
+              catalog: "${var.catalog}"
+              schema: "${var.schema}"
+        
+        - task_key: sales_manager_summary_view
+          depends_on:
+            - task_key: incremental_pipeline
+          notebook_task:
+            notebook_path: ../workflow/2_sales_manager_summary_view.ipynb
+            base_parameters:
+              catalog: "${var.catalog}"
+              schema: "${var.schema}"

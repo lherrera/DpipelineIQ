@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1100" width="1000" height="1100">
+  <defs>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B68EE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6A5ACD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E85555;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB84D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F39C12;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#50C878;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3DA35D;stop-opacity:1" />
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2C3E50" />
+    </marker>
+  </defs>
+
+  <rect width="1000" height="1100" fill="#FAFAFA"/>
+
+  <!-- Title -->
+  <text x="500" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#2C3E50">
+    PipelineIQ: 5-Stage Incremental Architecture
+  </text>
+
+  <!-- STAGE 1 -->
+  <g id="stage1">
+    <rect x="200" y="80" width="600" height="90" rx="8" fill="url(#blue)" stroke="#2C3E50" stroke-width="2"/>
+    <text x="500" y="110" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 1: Filtered Use Cases from Source
+    </text>
+    <text x="500" y="135" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="white">
+      Watermark-based incremental loading
+    </text>
+    <text x="500" y="155" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white" opacity="0.9">
+      WHERE last_modified_date &gt; piq_last_updated
+    </text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <line x1="500" y1="170" x2="500" y2="230" stroke="#2C3E50" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- STAGE 2 -->
+  <g id="stage2">
+    <rect x="100" y="230" width="800" height="140" rx="8" fill="url(#purple)" stroke="#2C3E50" stroke-width="2"/>
+    <text x="500" y="260" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 2: Independent AI Analysis
+    </text>
+    <text x="500" y="285" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" font-style="italic">
+      Information Gathering - 7 Parallel Enrichments
+    </text>
+    
+    <!-- Parallel boxes -->
+    <rect x="120" y="305" width="170" height="50" rx="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="205" y="327" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Context</text>
+    <text x="205" y="343" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">One-liner</text>
+    
+    <rect x="310" y="305" width="170" height="50" rx="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="395" y="327" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Next Steps</text>
+    <text x="395" y="343" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Implementation</text>
+    
+    <rect x="500" y="305" width="170" height="50" rx="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="585" y="327" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Blockers</text>
+    <text x="585" y="343" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Use Case Types</text>
+    
+    <rect x="690" y="305" width="170" height="50" rx="5" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="775" y="335" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">Soundbyte</text>
+  </g>
+
+  <!-- Convergence arrows -->
+  <line x1="205" y1="355" x2="500" y2="425" stroke="#2C3E50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="395" y1="355" x2="500" y2="425" stroke="#2C3E50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="585" y1="355" x2="500" y2="425" stroke="#2C3E50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="775" y1="355" x2="500" y2="425" stroke="#2C3E50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="500" y1="370" x2="500" y2="425" stroke="#2C3E50" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- STAGE 3 -->
+  <g id="stage3">
+    <rect x="150" y="425" width="700" height="110" rx="8" fill="url(#red)" stroke="#2C3E50" stroke-width="2"/>
+    <text x="500" y="455" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 3: AI Interpretation
+    </text>
+    <text x="500" y="480" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" font-style="italic">
+      Confidence Scoring via MEDDPICC Framework
+    </text>
+    <rect x="180" y="495" width="640" height="30" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="500" y="515" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+      Pain | Champion | Implementation | Decision | Urgency | Competition | Impact | Blockers
+    </text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <line x1="500" y1="535" x2="500" y2="595" stroke="#2C3E50" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- STAGE 4 -->
+  <g id="stage4">
+    <rect x="150" y="595" width="700" height="110" rx="8" fill="url(#orange)" stroke="#2C3E50" stroke-width="2"/>
+    <text x="500" y="625" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 4: AI Recommendations
+    </text>
+    <text x="500" y="650" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white" font-style="italic">
+      Dependent Analysis - Derived from Confidence Scores
+    </text>
+    <rect x="200" y="665" width="250" height="30" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="325" y="685" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">
+      Next Best Action
+    </text>
+    <rect x="550" y="665" width="250" height="30" rx="4" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
+    <text x="675" y="685" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white" font-weight="bold">
+      Slippage and Acceleration
+    </text>
+  </g>
+
+  <!-- Arrow 4 to 5 -->
+  <line x1="500" y1="705" x2="500" y2="765" stroke="#2C3E50" stroke-width="3" marker-end="url(#arrowhead)"/>
+
+  <!-- STAGE 5 -->
+  <g id="stage5">
+    <rect x="200" y="765" width="600" height="90" rx="8" fill="url(#green)" stroke="#2C3E50" stroke-width="2"/>
+    <text x="500" y="795" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+      Stage 5: Merge Results to Incremental Table
+    </text>
+    <text x="500" y="820" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="white">
+      MERGE INTO catalog.schema.pipelineiq
+    </text>
+    <text x="500" y="840" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white" opacity="0.9">
+      Upsert on usecase_id (update existing, insert new)
+    </text>
+  </g>
+
+  <!-- Side labels -->
+  <g id="labels">
+    <!-- Parallel -->
+    <circle cx="50" cy="300" r="30" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+    <text x="50" y="298" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2E7D32">||</text>
+    <text x="50" y="315" font-family="Arial, sans-serif" font-size="9" font-weight="bold" text-anchor="middle" fill="#2E7D32">PARALLEL</text>
+    
+    <!-- Sequential -->
+    <circle cx="950" cy="480" r="30" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+    <text x="950" y="485" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#C62828">&gt;</text>
+    <text x="950" y="500" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#C62828">SEQUENTIAL</text>
+    
+    <!-- Extendable -->
+    <circle cx="50" cy="650" r="30" fill="#FFF9C4" stroke="#F9A825" stroke-width="2"/>
+    <text x="50" y="658" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#F57F17">+</text>
+    <text x="50" y="673" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#F57F17">EXTENDABLE</text>
+  </g>
+
+  <!-- Benefits box -->
+  <rect x="100" y="900" width="800" height="80" rx="6" fill="#ECF0F1" stroke="#95A5A6" stroke-width="2"/>
+  <text x="500" y="925" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#2C3E50">
+    Architecture Benefits
+  </text>
+  <text x="500" y="950" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#34495E">
+    Parallel AI calls minimize latency
+  </text>
+  <text x="500" y="970" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#34495E">
+    Temporary views enable modularity and extensibility
+  </text>
+
+  <!-- Key insight box -->
+  <rect x="100" y="1000" width="800" height="60" rx="6" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+  <text x="500" y="1025" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1565C0">
+    Key Design Pattern: Fan-out / Convergence
+  </text>
+  <text x="500" y="1045" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1976D2">
+    Stage 2 fans out to 7 parallel enrichments, converges in Stage 3 for unified scoring
+  </text>
+</svg>

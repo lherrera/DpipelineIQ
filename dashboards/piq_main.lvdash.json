@@ -4,32 +4,168 @@
       "name": "eb899a32",
       "displayName": "acceleration_categories",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.acceleration_categories"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM acceleration_categories"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "ce30d9a1",
       "displayName": "pipelineiq_view",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.pipelineiq_view"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM pipelineiq_view"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "25f2a985",
       "displayName": "slippage_categories",
       "queryLines": [
-        "SELECT * FROM users.luis_herrera.slippage_categories"
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
+        "SELECT * FROM slippage_categories"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     },
     {
       "name": "97d31d1a",
       "displayName": "Top 10 Business Usecase Types and Counts",
       "queryLines": [
+        "use catalog IDENTIFIER(:catalog);\n",
+        "use schema IDENTIFIER(:schema);\n",
         "SELECT business_usecase_type, COUNT(*) AS usecase_count, SUM(estimated_monthly_dollar_dbus)\n",
-        "FROM users.luis_herrera.pipelineiq_view\n",
+        "FROM pipelineiq_view\n",
         "GROUP BY business_usecase_type\n",
         "ORDER BY usecase_count DESC\n",
         "LIMIT 10;"
+      ],
+      "parameters": [
+        {
+          "displayName": "catalog",
+          "keyword": "catalog",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "home_luis_herrera"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "displayName": "schema",
+          "keyword": "schema",
+          "dataType": "STRING",
+          "defaultSelection": {
+            "values": {
+              "dataType": "STRING",
+              "values": [
+                {
+                  "value": "pipelineiq"
+                }
+              ]
+            }
+          }
+        }
       ]
     }
   ],
@@ -2110,9 +2246,9 @@
                 "\n",
                 "<span style=\"font-size:14px;font-family:Arial\">THIS IS A</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">**&#32;BETA version**</span><span style=\"font-size:14px;font-family:Arial\">, go/pipelineIQ</span>\n",
                 "\n",
-                "<span style=\"font-family:Arial;font-size:14px\">These dashboards are here to cut through noise and help us nail Q4.</span><span style=\"font-family:Arial;font-size:14px;text-decoration:underline\">**&#32;But if they’re missing the mark, we need to know fast</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">, lease send your feedback through this 2 min&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32; </span>[**<span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">feedback form</span>](https://docs.google.com/forms/d/e/1FAIpQLSeti8KXZGVaCy4EWoPUx0657vZKjWFFT2E1GjDi9FVvlOWknw/viewform?usp=header )\n",
+                "<span style=\"font-family:Arial;font-size:14px\">These dashboards are here to cut through noise and help us nail Q4.</span><span style=\"font-family:Arial;font-size:14px;text-decoration:underline\">**&#32;But if they\u2019re missing the mark, we need to know fast</span><span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">, lease send your feedback through this 2 min&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32; </span>[**<span style=\"font-size:14px;font-family:Arial;text-decoration:underline\">feedback form</span>](https://docs.google.com/forms/d/e/1FAIpQLSeti8KXZGVaCy4EWoPUx0657vZKjWFFT2E1GjDi9FVvlOWknw/viewform?usp=header )\n",
                 "\n",
-                "<span style=\"font-family:Arial;font-size:14px\">PipelineIQ is an AI-driven, forward-looking workspace designed to help sales and field teams prioritize, course-correct, and accelerate execution at scale.At its core are prescriptive, actionable dashboards that give you both:A high-level view of pipeline health by region and territory (by SA FLM), andA granular lens into individual use cases — their qualification, risks, and acceleration potential.You can also interact with the data using Genie, your AI assistant (like ChatGPT), to ask questions in plain language and get instant, contextual insights — without digging through spreadsheets or dashboards manually.It’s built to cut through noise, surface where to lean in, and guide decisions that move the business forward — faster.</span><br><br>Got questions? We probably answered them already. Check [the FAQ](https://docs.google.com/document/d/12DJ0bdrMsXtfnU5ot_XmoYbkFRVkAK-VsBBqdVO7cTw/edit?usp=sharing) .Not answered. You need a walkthrough. Send me a note: luis.herrera@databricks.com"
+                "<span style=\"font-family:Arial;font-size:14px\">PipelineIQ is an AI-driven, forward-looking workspace designed to help sales and field teams prioritize, course-correct, and accelerate execution at scale.At its core are prescriptive, actionable dashboards that give you both:A high-level view of pipeline health by region and territory (by SA FLM), andA granular lens into individual use cases \u2014 their qualification, risks, and acceleration potential.You can also interact with the data using Genie, your AI assistant (like ChatGPT), to ask questions in plain language and get instant, contextual insights \u2014 without digging through spreadsheets or dashboards manually.It\u2019s built to cut through noise, surface where to lean in, and guide decisions that move the business forward \u2014 faster.</span><br><br>Got questions? We probably answered them already. Check [the FAQ](https://docs.google.com/document/d/12DJ0bdrMsXtfnU5ot_XmoYbkFRVkAK-VsBBqdVO7cTw/edit?usp=sharing) .Not answered. You need a walkthrough. Send me a note: luis.herrera@databricks.com"
               ]
             }
           },
@@ -2410,7 +2546,7 @@
               "lines": [
                 "# <span style=\"text-align:center;display:block\">Confidence Pulse</span>\n",
                 "\n",
-                "<br>✅ High — Bankable Pipeline<br>Use cases with high confidence are well-qualified, low-risk, and fully aligned with MEDDPICC. The champion, metrics, and decision path are clear — execution can proceed with confidence. These are your high-conviction commits: accelerate, remove friction, and replicate what works.<br><br>⚠️ Medium — Coachable Pipeline<br>Use cases with medium confidence show strong potential but contain qualification gaps — perhaps the champion is weak, the value unproven, or the decision process unclear. Progress is possible, but only through targeted intervention. Leaders should coach, requalify, or rescope before more investment to bring these deals back on track.<br><br>🛑 Low — Forecast Noise<br>Use cases with low confidence carry significant uncertainty or flawed assumptions. Missing metrics, absent champions, or unknown path to production signal that fundamentals need rebuilding. These aren’t lost use cases yet — they need rework to regain clarity before investing more Pause, requalify, or redirect effort to protect forecast integrity and team focus."
+                "<br>\u2705 High \u2014 Bankable Pipeline<br>Use cases with high confidence are well-qualified, low-risk, and fully aligned with MEDDPICC. The champion, metrics, and decision path are clear \u2014 execution can proceed with confidence. These are your high-conviction commits: accelerate, remove friction, and replicate what works.<br><br>\u26a0\ufe0f Medium \u2014 Coachable Pipeline<br>Use cases with medium confidence show strong potential but contain qualification gaps \u2014 perhaps the champion is weak, the value unproven, or the decision process unclear. Progress is possible, but only through targeted intervention. Leaders should coach, requalify, or rescope before more investment to bring these deals back on track.<br><br>\ud83d\uded1 Low \u2014 Forecast Noise<br>Use cases with low confidence carry significant uncertainty or flawed assumptions. Missing metrics, absent champions, or unknown path to production signal that fundamentals need rebuilding. These aren\u2019t lost use cases yet \u2014 they need rework to regain clarity before investing more Pause, requalify, or redirect effort to protect forecast integrity and team focus."
               ]
             }
           },
@@ -3135,7 +3271,7 @@
                 ]
               },
               "frame": {
-                "title": "$DBU Likely to Slip – Breakdown by Manager and Category",
+                "title": "$DBU Likely to Slip \u2013 Breakdown by Manager and Category",
                 "showTitle": true
               }
             }
@@ -5599,7 +5735,7 @@
                 ]
               },
               "frame": {
-                "title": "$DBU that can be accelerated – Breakdown by Manager and Category",
+                "title": "$DBU that can be accelerated \u2013 Breakdown by Manager and Category",
                 "showTitle": true
               }
             }
@@ -7925,7 +8061,7 @@
             }
           },
           "position": {
-            "x": 2,
+            "x": 3,
             "y": 3,
             "width": 2,
             "height": 3
@@ -7969,7 +8105,7 @@
           "position": {
             "x": 0,
             "y": 3,
-            "width": 2,
+            "width": 3,
             "height": 3
           }
         },
@@ -8022,9 +8158,9 @@
             }
           },
           "position": {
-            "x": 4,
+            "x": 5,
             "y": 3,
-            "width": 2,
+            "width": 1,
             "height": 3
           }
         },
@@ -8053,9 +8189,6 @@
                   "filters": [
                     {
                       "expression": "`is_stale` IN (TRUE)"
-                    },
-                    {
-                      "expression": "`stage` IN ('U2', 'U3', 'U4', 'U5')"
                     }
                   ],
                   "disaggregated": false
@@ -8068,6 +8201,9 @@
               "encodings": {
                 "x": {
                   "fieldName": "countdistinct(usecase_id)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
                   "axis": {
                     "hideTitle": true
                   },
@@ -8078,9 +8214,6 @@
                       "type": "max",
                       "places": 2
                     }
-                  },
-                  "scale": {
-                    "type": "quantitative"
                   }
                 },
                 "y": {
@@ -8147,9 +8280,6 @@
                   "filters": [
                     {
                       "expression": "`is_stale` IN (TRUE)"
-                    },
-                    {
-                      "expression": "`stage` IN ('U2', 'U3', 'U4', 'U5')"
                     }
                   ],
                   "disaggregated": false
@@ -8289,9 +8419,6 @@
                   "filters": [
                     {
                       "expression": "`is_stale` IN (TRUE)"
-                    },
-                    {
-                      "expression": "`stage` IN ('U2', 'U3', 'U4', 'U5')"
                     }
                   ],
                   "disaggregated": false
@@ -8414,9 +8541,6 @@
                   "filters": [
                     {
                       "expression": "`is_stale` IN (TRUE)"
-                    },
-                    {
-                      "expression": "`stage` IN ('U2', 'U3', 'U4', 'U5')"
                     }
                   ],
                   "disaggregated": true
@@ -10403,7 +10527,7 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - GCP')"
+                      "expression": "`confidence_level` IN ('High', 'Medium')"
                     }
                   ],
                   "disaggregated": false
@@ -10416,6 +10540,9 @@
               "encodings": {
                 "x": {
                   "fieldName": "sum(estimated_monthly_dollar_dbus)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
                   "axis": {
                     "hideTitle": true
                   },
@@ -10428,30 +10555,23 @@
                       "places": 2
                     }
                   },
-                  "displayName": "Sum of estimated_monthly_dollar_dbus",
-                  "scale": {
-                    "type": "quantitative"
-                  }
+                  "displayName": "Sum of estimated_monthly_dollar_dbus"
                 },
                 "y": {
                   "fieldName": "field_manager",
-                  "axis": {
-                    "hideTitle": true
-                  },
-                  "displayName": "field_manager",
                   "scale": {
                     "type": "categorical",
                     "sort": {
                       "by": "x-reversed"
                     }
-                  }
+                  },
+                  "axis": {
+                    "hideTitle": true
+                  },
+                  "displayName": "field_manager"
                 },
                 "color": {
                   "fieldName": "usecase_type",
-                  "legend": {
-                    "hideTitle": true
-                  },
-                  "displayName": "usecase_type",
                   "scale": {
                     "type": "categorical",
                     "mappings": [
@@ -10470,7 +10590,11 @@
                         "Migration DWH"
                       ]
                     }
-                  }
+                  },
+                  "legend": {
+                    "hideTitle": true
+                  },
+                  "displayName": "usecase_type"
                 },
                 "label": {
                   "show": true
@@ -10528,10 +10652,6 @@
                       "expression": "`business_usecase_type`"
                     },
                     {
-                      "name": "confidence_level_normalized",
-                      "expression": "`confidence_level_normalized`"
-                    },
-                    {
                       "name": "estimated_monthly_dollar_dbus",
                       "expression": "`estimated_monthly_dollar_dbus`"
                     },
@@ -10576,7 +10696,10 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - AWS;Serverless - Azure', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Serverless - Azure;Serverless - GCP', 'Serverless - Azure;Serverless - Azure - GovCloud')"
+                      "expression": "`confidence_level` IN ('High', 'Medium')"
+                    },
+                    {
+                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - AWS;Serverless - Azure', 'Serverless - Azure', 'Serverless - Azure - GovCloud')"
                     }
                   ],
                   "disaggregated": true
@@ -10746,32 +10869,6 @@
                     "description": "If it sounds technical, your team needs to work on describing better or aligning with a biz priority"
                   },
                   {
-                    "fieldName": "confidence_level_normalized",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 7,
-                    "title": "Confidence Score",
-                    "allowSearch": false,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
                     "fieldName": "estimated_monthly_dollar_dbus",
                     "numberFormat": "$0,0",
                     "booleanValues": [
@@ -10789,7 +10886,7 @@
                     "type": "float",
                     "displayAs": "number",
                     "visible": true,
-                    "order": 8,
+                    "order": 7,
                     "title": "Monthly $DBU",
                     "allowSearch": false,
                     "alignContent": "right",
@@ -10815,7 +10912,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 9,
+                    "order": 8,
                     "title": "Oneliner",
                     "allowSearch": false,
                     "alignContent": "left",
@@ -10841,7 +10938,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 10,
+                    "order": 9,
                     "title": "Target Cloud",
                     "allowSearch": true,
                     "alignContent": "left",
@@ -10867,7 +10964,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 11,
+                    "order": 10,
                     "title": "Stage",
                     "allowSearch": false,
                     "alignContent": "left",
@@ -10894,7 +10991,7 @@
                     "type": "date",
                     "displayAs": "datetime",
                     "visible": true,
-                    "order": 12,
+                    "order": 11,
                     "title": "Last Modified Date",
                     "allowSearch": false,
                     "alignContent": "right",
@@ -10921,7 +11018,7 @@
                     "type": "date",
                     "displayAs": "datetime",
                     "visible": true,
-                    "order": 13,
+                    "order": 12,
                     "title": "target_onboarding_date",
                     "allowSearch": false,
                     "alignContent": "right",
@@ -10948,7 +11045,7 @@
                     "type": "date",
                     "displayAs": "datetime",
                     "visible": true,
-                    "order": 14,
+                    "order": 13,
                     "title": "Target Live Date",
                     "allowSearch": false,
                     "alignContent": "right",
@@ -10974,7 +11071,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 15,
+                    "order": 14,
                     "title": "AE",
                     "allowSearch": false,
                     "alignContent": "left",
@@ -11000,7 +11097,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 16,
+                    "order": 15,
                     "title": "SA",
                     "allowSearch": false,
                     "alignContent": "left",
@@ -11054,7 +11151,7 @@
                   "name": "usecase_description",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 17,
+                  "order": 16,
                   "title": "usecase_description",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11079,7 +11176,7 @@
                   "name": "sales_subregion_level_1",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 18,
+                  "order": 17,
                   "title": "sales_subregion_level_1",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11104,7 +11201,7 @@
                   "name": "sales_subregion_level_2",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 19,
+                  "order": 18,
                   "title": "sales_subregion_level_2",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11129,7 +11226,7 @@
                   "name": "sales_subregion_level_3",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 20,
+                  "order": 19,
                   "title": "sales_subregion_level_3",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11154,7 +11251,7 @@
                   "name": "primary_competitor",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 21,
+                  "order": 20,
                   "title": "primary_competitor",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11179,7 +11276,7 @@
                   "name": "demand_plan_stage_next_steps",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 22,
+                  "order": 21,
                   "title": "demand_plan_stage_next_steps",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11204,7 +11301,7 @@
                   "name": "implementation_notes",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 23,
+                  "order": 22,
                   "title": "implementation_notes",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11229,7 +11326,7 @@
                   "name": "sales_region",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 24,
+                  "order": 23,
                   "title": "sales_region",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11254,7 +11351,7 @@
                   "name": "sales_subregion_level_4",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 25,
+                  "order": 24,
                   "title": "sales_subregion_level_4",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11279,7 +11376,7 @@
                   "name": "sales_manager",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 26,
+                  "order": 25,
                   "title": "sales_manager",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11304,7 +11401,7 @@
                   "name": "sales_leader",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 27,
+                  "order": 26,
                   "title": "sales_leader",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11329,7 +11426,7 @@
                   "name": "field_leader",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 28,
+                  "order": 27,
                   "title": "field_leader",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11354,7 +11451,7 @@
                   "name": "use_case_product",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 29,
+                  "order": 28,
                   "title": "use_case_product",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11380,7 +11477,7 @@
                   "name": "blockers_last_modified_date",
                   "type": "datetime",
                   "displayAs": "datetime",
-                  "order": 30,
+                  "order": 29,
                   "title": "blockers_last_modified_date",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -11405,7 +11502,7 @@
                   "name": "context",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 31,
+                  "order": 30,
                   "title": "context",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11430,7 +11527,7 @@
                   "name": "next_steps_summary",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 32,
+                  "order": 31,
                   "title": "next_steps_summary",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11455,7 +11552,7 @@
                   "name": "sdr_bdr_notes",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 33,
+                  "order": 32,
                   "title": "sdr_bdr_notes",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11480,7 +11577,7 @@
                   "name": "implementation_notes_summary",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 34,
+                  "order": 33,
                   "title": "implementation_notes_summary",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11505,7 +11602,7 @@
                   "name": "business_impact",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 35,
+                  "order": 34,
                   "title": "business_impact",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11530,7 +11627,7 @@
                   "name": "blockers_summary",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 36,
+                  "order": 35,
                   "title": "blockers_summary",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11555,7 +11652,7 @@
                   "name": "business_outcome_description",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 37,
+                  "order": 36,
                   "title": "business_outcome_description",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11580,7 +11677,7 @@
                   "name": "ae_authority",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 38,
+                  "order": 37,
                   "title": "ae_authority",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11605,7 +11702,7 @@
                   "name": "ae_money_budget",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 39,
+                  "order": 38,
                   "title": "ae_money_budget",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11630,7 +11727,7 @@
                   "name": "business_unit",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 40,
+                  "order": 39,
                   "title": "business_unit",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11656,7 +11753,7 @@
                   "name": "num_of_blockers",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 41,
+                  "order": 40,
                   "title": "num_of_blockers",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -11681,7 +11778,7 @@
                   "name": "last_modified_blocker_category",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 42,
+                  "order": 41,
                   "title": "last_modified_blocker_category",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11706,7 +11803,7 @@
                   "name": "last_modified_blocker_comment",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 43,
+                  "order": 42,
                   "title": "last_modified_blocker_comment",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11731,7 +11828,7 @@
                   "name": "competition_string",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 44,
+                  "order": 43,
                   "title": "competition_string",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11756,7 +11853,7 @@
                   "name": "likely_to_slip",
                   "type": "boolean",
                   "displayAs": "string",
-                  "order": 45,
+                  "order": 44,
                   "title": "likely_to_slip",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11781,7 +11878,7 @@
                   "name": "slippage_category",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 46,
+                  "order": 45,
                   "title": "slippage_category",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11806,7 +11903,7 @@
                   "name": "can_be_accelerated",
                   "type": "boolean",
                   "displayAs": "string",
-                  "order": 47,
+                  "order": 46,
                   "title": "can_be_accelerated",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11831,7 +11928,7 @@
                   "name": "accel_category",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 48,
+                  "order": 47,
                   "title": "accel_category",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11856,7 +11953,7 @@
                   "name": "ai_confidence_score_advanced",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 49,
+                  "order": 48,
                   "title": "ai_confidence_score_advanced",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11882,7 +11979,7 @@
                   "name": "confidence_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 50,
+                  "order": 49,
                   "title": "confidence_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -11907,7 +12004,7 @@
                   "name": "confidence_level",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 51,
+                  "order": 50,
                   "title": "confidence_level",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11932,7 +12029,7 @@
                   "name": "rationale_for_confidence_score",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 52,
+                  "order": 51,
                   "title": "rationale_for_confidence_score",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -11958,7 +12055,7 @@
                   "name": "pain_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 53,
+                  "order": 52,
                   "title": "pain_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -11984,7 +12081,7 @@
                   "name": "champion_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 54,
+                  "order": 53,
                   "title": "champion_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12010,7 +12107,7 @@
                   "name": "implementationplan_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 55,
+                  "order": 54,
                   "title": "implementationplan_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12036,7 +12133,7 @@
                   "name": "decisionprocess_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 56,
+                  "order": 55,
                   "title": "decisionprocess_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12062,7 +12159,7 @@
                   "name": "urgency_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 57,
+                  "order": 56,
                   "title": "urgency_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12088,7 +12185,7 @@
                   "name": "competitionawareness_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 58,
+                  "order": 57,
                   "title": "competitionawareness_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12114,7 +12211,7 @@
                   "name": "majorblockers_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 59,
+                  "order": 58,
                   "title": "majorblockers_score",
                   "allowSearch": false,
                   "alignContent": "right",
@@ -12140,10 +12237,35 @@
                   "name": "measurableimpact_score",
                   "type": "integer",
                   "displayAs": "number",
-                  "order": 60,
+                  "order": 59,
                   "title": "measurableimpact_score",
                   "allowSearch": false,
                   "alignContent": "right",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "confidence_level_normalized",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 60,
+                  "title": "confidence_level_normalized",
+                  "allowSearch": false,
+                  "alignContent": "left",
                   "allowHTML": false,
                   "highlightLinks": false,
                   "useMonospaceFont": false,
@@ -12437,7 +12559,7 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - GCP')"
+                      "expression": "`confidence_level` IN ('High', 'Medium')"
                     }
                   ],
                   "disaggregated": false
@@ -12450,15 +12572,18 @@
               "encodings": {
                 "x": {
                   "fieldName": "monthly(target_live_date)",
-                  "axis": {
-                    "hideTitle": true
-                  },
                   "scale": {
                     "type": "temporal"
+                  },
+                  "axis": {
+                    "hideTitle": true
                   }
                 },
                 "y": {
                   "fieldName": "sum(estimated_monthly_dollar_dbus)",
+                  "scale": {
+                    "type": "quantitative"
+                  },
                   "axis": {
                     "hideTitle": true
                   },
@@ -12469,9 +12594,6 @@
                       "type": "max",
                       "places": 2
                     }
-                  },
-                  "scale": {
-                    "type": "quantitative"
                   }
                 },
                 "color": {
@@ -12521,7 +12643,7 @@
                 ]
               },
               "frame": {
-                "title": "Monthly $DBU for U3–U5 migration use cases, grouped by target go-live datethat's ",
+                "title": "Monthly $DBU for U3\u2013U5 migration use cases, grouped by target go-live datethat's ",
                 "showTitle": true
               }
             }
@@ -12592,6 +12714,9 @@
                     },
                     {
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
+                    },
+                    {
+                      "expression": "`confidence_level` IN ('Medium', 'High')"
                     }
                   ],
                   "disaggregated": false
@@ -12646,7 +12771,13 @@
                       "expression": "`stage` IN ('U3', 'U4', 'U5')"
                     },
                     {
+                      "expression": "`recommendation` IN (`recommendation`) OR TRUE"
+                    },
+                    {
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
+                    },
+                    {
+                      "expression": "`confidence_level` IN ('High', 'Medium')"
                     }
                   ],
                   "disaggregated": false
@@ -12705,7 +12836,10 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - GCP', 'Serverless - Azure;Serverless - Azure - GovCloud', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure')"
+                      "expression": "`confidence_level` IN ('High', 'Medium')"
+                    },
+                    {
+                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud')"
                     }
                   ],
                   "disaggregated": false
@@ -12717,15 +12851,7 @@
               "widgetType": "counter",
               "encodings": {
                 "value": {
-                  "fieldName": "count(*)",
-                  "format": {
-                    "type": "number-plain",
-                    "abbreviation": "none",
-                    "decimalPlaces": {
-                      "type": "max",
-                      "places": 2
-                    }
-                  }
+                  "fieldName": "count(*)"
                 }
               },
               "frame": {
@@ -12763,10 +12889,10 @@
                       "expression": "`usecase_type` IN ('Migration ETL', 'Migration DWH')"
                     },
                     {
-                      "expression": "`confidence_level` IN ('Medium', 'High', 'Low')"
+                      "expression": "`confidence_level` IN ('Medium', 'High')"
                     },
                     {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Serverless - Azure;Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - GCP')"
+                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud')"
                     }
                   ],
                   "disaggregated": false
@@ -12798,62 +12924,6 @@
           },
           "position": {
             "x": 4,
-            "y": 6,
-            "width": 2,
-            "height": 3
-          }
-        },
-        {
-          "widget": {
-            "name": "unique-accounts",
-            "queries": [
-              {
-                "name": "main_query",
-                "query": {
-                  "datasetName": "ce30d9a1",
-                  "fields": [
-                    {
-                      "name": "countdistinct(account_name)",
-                      "expression": "COUNT(DISTINCT `account_name`)"
-                    }
-                  ],
-                  "filters": [
-                    {
-                      "expression": "`stage` IN ('U3', 'U4', 'U5')"
-                    },
-                    {
-                      "expression": "`target_cloud` IN ('Classic - Azure', 'Classic - Azure - GovCloud', 'Classic - Azure - GovCloud;Serverless - Azure', 'Classic - Azure;Classic - AWS', 'Classic - Azure;Classic - AWS - GovCloud;Serverless - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Classic - AWS;Classic - GCP', 'Classic - Azure;Classic - AWS;Serverless - AWS', 'Classic - Azure;Classic - AWS;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Classic - AWS;Serverless - Azure', 'Classic - Azure;Classic - GCP', 'Classic - Azure;Classic - GCP;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - AWS', 'Classic - Azure;Serverless - AWS - GovCloud', 'Classic - Azure;Serverless - AWS;Serverless - Azure', 'Classic - Azure;Serverless - Azure', 'Classic - Azure;Serverless - Azure;Serverless - GCP', 'Classic - Azure;Serverless - GCP', 'Serverless - Azure', 'Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - Azure - GovCloud', 'Serverless - Azure;Serverless - GCP')"
-                    }
-                  ],
-                  "disaggregated": false
-                }
-              }
-            ],
-            "spec": {
-              "version": 2,
-              "widgetType": "counter",
-              "encodings": {
-                "value": {
-                  "fieldName": "countdistinct(account_name)",
-                  "format": {
-                    "type": "number-plain",
-                    "abbreviation": "none",
-                    "decimalPlaces": {
-                      "type": "max",
-                      "places": 2
-                    }
-                  }
-                }
-              },
-              "frame": {
-                "showDescription": false,
-                "showTitle": true,
-                "title": "Unique Accounts with DWH/ETL Migrations"
-              }
-            }
-          },
-          "position": {
-            "x": 0,
             "y": 6,
             "width": 2,
             "height": 3
@@ -17887,10 +17957,6 @@
                       "expression": "`next_best_action_recommendation`"
                     },
                     {
-                      "name": "demand_plan_stage_next_steps",
-                      "expression": "`demand_plan_stage_next_steps`"
-                    },
-                    {
                       "name": "soundbyte",
                       "expression": "`soundbyte`"
                     },
@@ -18329,32 +18395,6 @@
                     "preserveWhitespace": false
                   },
                   {
-                    "fieldName": "demand_plan_stage_next_steps",
-                    "booleanValues": [
-                      "false",
-                      "true"
-                    ],
-                    "imageUrlTemplate": "{{ @ }}",
-                    "imageTitleTemplate": "{{ @ }}",
-                    "imageWidth": "",
-                    "imageHeight": "",
-                    "linkUrlTemplate": "{{ @ }}",
-                    "linkTextTemplate": "{{ @ }}",
-                    "linkTitleTemplate": "{{ @ }}",
-                    "linkOpenInNewTab": true,
-                    "type": "string",
-                    "displayAs": "string",
-                    "visible": true,
-                    "order": 19,
-                    "title": "Next Steps ",
-                    "allowSearch": false,
-                    "alignContent": "left",
-                    "allowHTML": false,
-                    "highlightLinks": false,
-                    "useMonospaceFont": false,
-                    "preserveWhitespace": false
-                  },
-                  {
                     "fieldName": "soundbyte",
                     "booleanValues": [
                       "false",
@@ -18371,7 +18411,7 @@
                     "type": "string",
                     "displayAs": "string",
                     "visible": true,
-                    "order": 20,
+                    "order": 19,
                     "title": "Value Soundbyte",
                     "allowSearch": false,
                     "alignContent": "left",
@@ -18475,7 +18515,7 @@
                   "name": "sales_subregion_level_1",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 21,
+                  "order": 20,
                   "title": "sales_subregion_level_1",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -18500,7 +18540,7 @@
                   "name": "sales_subregion_level_2",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 22,
+                  "order": 21,
                   "title": "sales_subregion_level_2",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -18525,7 +18565,7 @@
                   "name": "sales_subregion_level_3",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 23,
+                  "order": 22,
                   "title": "sales_subregion_level_3",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -18550,7 +18590,7 @@
                   "name": "target_cloud",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 24,
+                  "order": 23,
                   "title": "target_cloud",
                   "allowSearch": false,
                   "alignContent": "left",
@@ -18575,8 +18615,33 @@
                   "name": "usecase_description",
                   "type": "string",
                   "displayAs": "string",
-                  "order": 25,
+                  "order": 24,
                   "title": "usecase_description",
+                  "allowSearch": false,
+                  "alignContent": "left",
+                  "allowHTML": false,
+                  "highlightLinks": false,
+                  "useMonospaceFont": false,
+                  "preserveWhitespace": false
+                },
+                {
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "imageHeight": "",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkOpenInNewTab": true,
+                  "name": "demand_plan_stage_next_steps",
+                  "type": "string",
+                  "displayAs": "string",
+                  "order": 25,
+                  "title": "demand_plan_stage_next_steps",
                   "allowSearch": false,
                   "alignContent": "left",
                   "allowHTML": false,

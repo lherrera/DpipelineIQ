@@ -1,0 +1,36 @@
+bundle:
+  name: pipelineIQ
+
+variables:
+  catalog:
+    description: Catalog to use for pipeline
+    default: users
+  schema:
+    description: Schema name variable
+    default: ${workspace.current_user.short_name}
+  my_warehouse_id:
+    description: Which warehouse you want to run the dashboards against
+    default: 071969b1ec9a91ca
+
+permissions:
+  - user_name: sam.lecorre@databricks.com
+    level: CAN_MANAGE
+  - user_name: luis.herrera@databricks.com
+    level: CAN_MANAGE
+
+include:
+  - deployment_resources/*.yml
+# Line prevents dashboard files being duplicated during deployment.
+sync:
+  exclude:
+    - /dashboards/*.lvdash.json
+
+targets:
+  # Dashboards do NOT deploy to dev, see definition in deployment_resources/dashboards.yml
+  dev:
+    mode: development
+    default: true
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/my-envs/${bundle.target}
